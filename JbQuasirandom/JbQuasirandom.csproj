@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.1</TargetFramework>
+    <Authors>John Burkardt; Ansgar Hellwig</Authors>
+    <Product>JbQuasirandom</Product>
+    <Description>Quasirandom number generation. Based on C++ code by John Burkardt.</Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Version>0.1.0</Version>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Copyright>Copyright 2020</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE" Pack="True" PackagePath="" />
+  </ItemGroup>
+
+</Project>
