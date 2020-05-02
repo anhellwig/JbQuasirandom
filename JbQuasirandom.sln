@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JbQuasirandom", "JbQuasiran
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JbQuasirandom.Tests", "JbQuasirandom.Tests\JbQuasirandom.Tests.csproj", "{1177EA1D-0FEE-44A5-B698-0D3579E4E8AD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApplication", "SampleApplication\SampleApplication.csproj", "{DE0FC63F-139F-4C20-89AC-D6EA8583A646}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1177EA1D-0FEE-44A5-B698-0D3579E4E8AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1177EA1D-0FEE-44A5-B698-0D3579E4E8AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1177EA1D-0FEE-44A5-B698-0D3579E4E8AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE0FC63F-139F-4C20-89AC-D6EA8583A646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE0FC63F-139F-4C20-89AC-D6EA8583A646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE0FC63F-139F-4C20-89AC-D6EA8583A646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE0FC63F-139F-4C20-89AC-D6EA8583A646}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
