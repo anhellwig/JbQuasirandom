@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.1</TargetFramework>
-    <Authors>John Burkardt; Ansgar Hellwig</Authors>
+    <Authors>John Burkardt; Bennett Fox; Ansgar Hellwig</Authors>
     <Product>JbQuasirandom</Product>
     <Description>Quasirandom number generation. Based on C++ code by John Burkardt.</Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Version>0.2.0</Version>
+    <Version>0.3.0</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Copyright>Copyright 2020</Copyright>
   </PropertyGroup>
