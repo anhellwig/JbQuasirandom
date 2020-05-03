@@ -123,7 +123,7 @@
                 Grid.Row="4"
                 Grid.Column="0"
                 Margin="0,1,8,1"
-                Text="x dimension:" />
+                Text="y dimension:" />
             <TextBox
                 Grid.Row="4"
                 Grid.Column="1"
