@@ -5,7 +5,7 @@ namespace JbQuasirandom
     using System;
 
     /// <summary>Computes elements of the van der Corput sequence.</summary>
-    public class VanDerCorputSequence
+    public class VanDerCorputSequence : ISequence
     {
         private readonly int sign = 1;
         private readonly int sequenceBase = 2;
@@ -112,6 +112,12 @@ namespace JbQuasirandom
                 currentIndex += sign;
             }
             return GetElement(currentIndex, sequenceBase);
+        }
+
+        /// <inheritdoc />
+        double[] ISequence.GetNextElement()
+        {
+            return new double[] { GetNextElement() };
         }
     }
 }

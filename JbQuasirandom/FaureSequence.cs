@@ -5,7 +5,7 @@ namespace JbQuasirandom
     using System;
 
     /// <summary>Computes elements of the Faure sequence.</summary>
-    public class FaureSequence
+    public class FaureSequence : ISequence
     {
         private readonly int dimensionCount;
         private int seed;

@@ -7,7 +7,7 @@ namespace JbQuasirandom
     using System.Linq;
 
     /// <summary>Computes elements of the Halton sequence.</summary>
-    public class HaltonSequence
+    public class HaltonSequence : ISequence
     {
         private readonly int dimensionCount;
         private readonly VanDerCorputSequence[] vanDerCorputSequences;

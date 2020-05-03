@@ -3,7 +3,7 @@
     using System;
 
     /// <summary>Computes elements of the Sobol quasirandom sequence.</summary>
-    public class SobolSequence
+    public class SobolSequence : ISequence
     {
         private const int MaxDimensions = 1111;
         private const int ColumnCount = 62;

@@ -7,7 +7,7 @@ namespace JbQuasirandom
     using System.Linq;
 
     /// <summary>Computes elements of the Hammersley sequence.</summary>
-    public class HammersleySequence
+    public class HammersleySequence : ISequence
     {
         private readonly int dimensionCount;
         private readonly int b;
