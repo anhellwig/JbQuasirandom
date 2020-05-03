@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using JbQuasirandom;
+using System.Collections.Generic;
 
 namespace SampleApplication.Domain.Sequences
 {
@@ -11,6 +12,18 @@ namespace SampleApplication.Domain.Sequences
             return Description;
         }
 
-        public abstract IList<Point> GeneratePoints(int dimensions, int count, int xDimension, int yDimension);
+        public IList<Point> GeneratePoints(int dimensions, int count, int xDimension, int yDimension)
+        {
+            ISequence sequence = GetSequence(dimensions);
+            List<Point> points = new List<Point>();
+            for (int i = 0; i < count; i++)
+            {
+                double[] e = sequence.GetNextElement();
+                points.Add(new Point(e[xDimension], e[yDimension]));
+            }
+            return points;
+        }
+
+        protected abstract ISequence GetSequence(int dimensions);
     }
 }
