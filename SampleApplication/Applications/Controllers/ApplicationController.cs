@@ -49,7 +49,8 @@ namespace SampleApplication.Applications.Controllers
             {
                 new SobolSequenceModel(),
                 new HaltonSequenceModel(),
-                new HammersleySequenceModel()
+                new HammersleySequenceModel(),
+                new FaureSequenceModel()
             };
         }
 
