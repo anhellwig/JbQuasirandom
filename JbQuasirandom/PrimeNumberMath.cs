@@ -171,5 +171,39 @@
             13313,13327,13331,13337,13339,13367,13381,13397,13399,13411,
             13417,13421,13441,13451,13457,13463,13469,13477,13487,13499
         };
+
+        /// <summary>Gets the smallest prime greater than or equal to the specified number.</summary>
+        /// <param name="value">The upper bound.</param>
+        /// <returns>The prime number or the negative value of the maximum stored prime if the specified value is too large.</returns>
+        public static int PrimeGreaterOrEqual(int value)
+        {
+            if (value > 2)
+            {
+                int idxLow = 1;
+                int idxHigh = Primes.Count - 1;
+                int primeHigh = Primes[idxHigh];
+                if (value <= primeHigh)
+                {
+                    while (idxLow + 1 != idxHigh)
+                    {
+                        int idxMid = (idxLow + idxHigh) / 2;
+                        int primeMid = Primes[idxMid];
+
+                        if (primeMid < value)
+                        {
+                            idxLow = idxMid;
+                        }
+                        else if (value <= primeMid)
+                        {
+                            idxHigh = idxMid;
+                            primeHigh = primeMid;
+                        }
+                    }
+                    return primeHigh;
+                }
+                return -primeHigh;
+            }
+            return 2;
+        }
     }
 }
