@@ -1,12 +1,11 @@
 ﻿using JbQuasirandom;
-using SampleApplication.Domain;
 using System.Collections.Generic;
 
-namespace SampleApplication.Applications.Sequences
+namespace SampleApplication.Domain.Sequences
 {
-    public class SobolSequenceModel : SequenceModelBase
+    public class SobolSequenceGenerator : SequenceGenerator
     {
-        public SobolSequenceModel()
+        public SobolSequenceGenerator()
         {
             Description = "Sobol";
         }

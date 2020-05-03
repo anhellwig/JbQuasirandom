@@ -1,12 +1,11 @@
 ﻿using JbQuasirandom;
-using SampleApplication.Domain;
 using System.Collections.Generic;
 
-namespace SampleApplication.Applications.Sequences
+namespace SampleApplication.Domain.Sequences
 {
-    public class HaltonSequenceModel : SequenceModelBase
+    public class HaltonSequenceGenerator : SequenceGenerator
     {
-        public HaltonSequenceModel()
+        public HaltonSequenceGenerator()
         {
             Description = "Halton";
         }

@@ -1,6 +1,5 @@
-﻿using SampleApplication.Applications.Sequences;
-using SampleApplication.Applications.ViewModels;
-using SampleApplication.Domain;
+﻿using SampleApplication.Applications.ViewModels;
+using SampleApplication.Domain.Sequences;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -34,7 +33,7 @@ namespace SampleApplication.Applications.Controllers
             mainViewModel.XDimension = 1;
             mainViewModel.YDimension = 2;
             mainViewModel.GenerateCommand = new DelegateCommand(GeneratePoints);
-            mainViewModel.Sequences = CreateSequenceModels();
+            mainViewModel.Sequences = CreateSequenceGenerators();
             mainViewModel.SelectedSequence = mainViewModel.Sequences[0];
             mainViewModel.Show();
         }
@@ -43,14 +42,14 @@ namespace SampleApplication.Applications.Controllers
         {
         }
 
-        private IList<SequenceModelBase> CreateSequenceModels()
+        private IList<SequenceGenerator> CreateSequenceGenerators()
         {
-            return new List<SequenceModelBase>
+            return new List<SequenceGenerator>
             {
-                new SobolSequenceModel(),
-                new HaltonSequenceModel(),
-                new HammersleySequenceModel(),
-                new FaureSequenceModel()
+                new SobolSequenceGenerator(),
+                new HaltonSequenceGenerator(),
+                new HammersleySequenceGenerator(),
+                new FaureSequenceGenerator()
             };
         }
 
@@ -58,7 +57,7 @@ namespace SampleApplication.Applications.Controllers
         {
             try
             {
-                SequenceModelBase selectedSequence = mainViewModel.SelectedSequence;
+                SequenceGenerator selectedSequence = mainViewModel.SelectedSequence;
                 mainViewModel.ChartTitle = selectedSequence.Description;
                 mainViewModel.Points = selectedSequence.GeneratePoints(mainViewModel.DimensionCount,
                     mainViewModel.PointCount,

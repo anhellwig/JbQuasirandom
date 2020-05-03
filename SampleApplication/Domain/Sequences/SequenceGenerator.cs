@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace SampleApplication.Domain
+namespace SampleApplication.Domain.Sequences
 {
-    public abstract class SequenceModelBase
+    public abstract class SequenceGenerator
     {
         public string Description { get; internal set; }
 

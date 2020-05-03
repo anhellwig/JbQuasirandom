@@ -1,5 +1,6 @@
 ﻿using SampleApplication.Applications.Views;
 using SampleApplication.Domain;
+using SampleApplication.Domain.Sequences;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -16,15 +17,15 @@ namespace SampleApplication.Applications.ViewModels
         {
         }
 
-        private IList<SequenceModelBase> sequences;
-        public IList<SequenceModelBase> Sequences
+        private IList<SequenceGenerator> sequences;
+        public IList<SequenceGenerator> Sequences
         {
             get => sequences;
             set => SetProperty(ref sequences, value);
         }
 
-        private SequenceModelBase selectedSequence;
-        public SequenceModelBase SelectedSequence
+        private SequenceGenerator selectedSequence;
+        public SequenceGenerator SelectedSequence
         {
             get => selectedSequence;
             set => SetProperty(ref selectedSequence, value);

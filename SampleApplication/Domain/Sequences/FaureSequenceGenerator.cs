@@ -1,19 +1,18 @@
 ﻿using JbQuasirandom;
-using SampleApplication.Domain;
 using System.Collections.Generic;
 
-namespace SampleApplication.Applications.Sequences
+namespace SampleApplication.Domain.Sequences
 {
-    public class HammersleySequenceModel : SequenceModelBase
+    public class FaureSequenceGenerator : SequenceGenerator
     {
-        public HammersleySequenceModel()
+        public FaureSequenceGenerator()
         {
-            Description = "Hammersley";
+            Description = "Faure";
         }
 
         public override IList<Point> GeneratePoints(int dimensions, int count, int xDimension, int yDimension)
         {
-            HammersleySequence sequence = new HammersleySequence(dimensions, 16);
+            FaureSequence sequence = new FaureSequence(dimensions);
             List<Point> points = new List<Point>();
             for (int i = 0; i < count; i++)
             {
