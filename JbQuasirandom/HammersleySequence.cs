@@ -53,7 +53,7 @@ namespace JbQuasirandom
 
         /// <summary>Gets the next element.</summary>
         /// <returns></returns>
-        public double[] GetNextElement()
+        public double[] Next()
         {
             currentIndex++;
             return GetElement(dimensionCount, b, currentIndex);

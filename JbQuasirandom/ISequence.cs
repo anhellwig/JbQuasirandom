@@ -5,6 +5,6 @@
     {
         /// <summary>Gets the next element of the sequence.</summary>
         /// <returns>The next element of the sequence.</returns>
-        double[] GetNextElement();
+        double[] Next();
     }
 }

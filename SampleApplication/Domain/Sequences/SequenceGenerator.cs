@@ -18,7 +18,7 @@ namespace SampleApplication.Domain.Sequences
             List<Point> points = new List<Point>();
             for (int i = 0; i < count; i++)
             {
-                double[] e = sequence.GetNextElement();
+                double[] e = sequence.Next();
                 points.Add(new Point(e[xDimension], e[yDimension]));
             }
             return points;

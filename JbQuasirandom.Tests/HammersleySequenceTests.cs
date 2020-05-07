@@ -31,14 +31,14 @@
         }
 
         [Test]
-        public void GetNextElement_3DZeroSeed_ReturnsExpectedSequence()
+        public void Next_3DZeroSeed_ReturnsExpectedSequence()
         {
             int count = 11;
             HammersleySequence sequence = new HammersleySequence(3, 16);
             double[][] result = new double[count][];
             for (int i = 0; i < count; i++)
             {
-                result[i] = sequence.GetNextElement();
+                result[i] = sequence.Next();
             }
             Assert.That(result, Is.EqualTo(hammersleySequence3DBase16).Within(6E-7));
         }

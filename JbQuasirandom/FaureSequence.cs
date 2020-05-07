@@ -41,7 +41,7 @@ namespace JbQuasirandom
 
         /// <summary>Gets the next element of the sequence.</summary>
         /// <returns>The next element of the sequence.</returns>
-        public double[] GetNextElement()
+        public double[] Next()
         {
             // Initialization required?
             if (qs <= 0 || seed <= 0)

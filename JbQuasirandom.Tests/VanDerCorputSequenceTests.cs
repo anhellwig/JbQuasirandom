@@ -57,23 +57,23 @@
         }
 
         [Test]
-        public void GetNextElement_PositiveSeed_ReturnsExpectedElements()
+        public void Next_PositiveSeed_ReturnsExpectedElements()
         {
             int index = 6;
             VanDerCorputSequence vdc = new VanDerCorputSequence(index);
-            double result1 = vdc.GetNextElement();
-            double result2 = vdc.GetNextElement();
+            double result1 = vdc.Next();
+            double result2 = vdc.Next();
             Assert.That(result1, Is.EqualTo(sequenceBase2[index]));
             Assert.That(result2, Is.EqualTo(sequenceBase2[index + 1]));
         }
 
         [Test]
-        public void GetNextElement_NegativeSeed_ReturnsExpectedElements()
+        public void Next_NegativeSeed_ReturnsExpectedElements()
         {
             int index = 6;
             VanDerCorputSequence vdc = new VanDerCorputSequence(-index);
-            double result1 = vdc.GetNextElement();
-            double result2 = vdc.GetNextElement();
+            double result1 = vdc.Next();
+            double result2 = vdc.Next();
             Assert.That(result1, Is.EqualTo(-sequenceBase2[index]));
             Assert.That(result2, Is.EqualTo(-sequenceBase2[index + 1]));
         }

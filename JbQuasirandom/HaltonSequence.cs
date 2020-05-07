@@ -45,12 +45,12 @@ namespace JbQuasirandom
         /// <summary>Gets the next element of the sequence.</summary>
         /// <returns>The next element.</returns>
         /// <exception cref="OverflowException">Thrown when the number of elements has exceeded the maximum number of integers.</exception>
-        public double[] GetNextElement()
+        public double[] Next()
         {
             double[] r = new double[dimensionCount];
             for (int j = 0; j < dimensionCount; j++)
             {
-                r[j] = vanDerCorputSequences[j].GetNextElement();
+                r[j] = vanDerCorputSequences[j].Next();
             }
             return r;
         }

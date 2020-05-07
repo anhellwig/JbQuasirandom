@@ -47,48 +47,48 @@
         };
 
         [Test]
-        public void GetNextElement_2D_ReturnsExpectedElementsAndSeeds()
+        public void Next_2D_ReturnsExpectedElementsAndSeeds()
         {
             FaureSequence faure = new FaureSequence(2);
 
-            var element = faure.GetNextElement();
+            var element = faure.Next();
             int seed = faure.CurrentSeed;
             Assert.That(seed, Is.EqualTo(16));
             Assert.That(element, Is.EqualTo(expected2D[0]).Within(6E-7));
 
-            element = faure.GetNextElement();
+            element = faure.Next();
             seed = faure.CurrentSeed;
             Assert.That(seed, Is.EqualTo(17));
             Assert.That(element, Is.EqualTo(expected2D[1]).Within(6E-7));
         }
 
         [Test]
-        public void GetNextElement_3D_ReturnsExpectedElementsAndSeeds()
+        public void Next_3D_ReturnsExpectedElementsAndSeeds()
         {
             FaureSequence faure = new FaureSequence(3);
 
-            var element = faure.GetNextElement();
+            var element = faure.Next();
             int seed = faure.CurrentSeed;
             Assert.That(seed, Is.EqualTo(81));
             Assert.That(element, Is.EqualTo(expected3D[0]).Within(6E-7));
 
-            element = faure.GetNextElement();
+            element = faure.Next();
             seed = faure.CurrentSeed;
             Assert.That(seed, Is.EqualTo(82));
             Assert.That(element, Is.EqualTo(expected3D[1]).Within(6E-7));
         }
 
         [Test]
-        public void GetNextElement_4D_ReturnsExpectedElementsAndSeeds()
+        public void Next_4D_ReturnsExpectedElementsAndSeeds()
         {
             FaureSequence faure = new FaureSequence(4);
 
-            var element = faure.GetNextElement();
+            var element = faure.Next();
             int seed = faure.CurrentSeed;
             Assert.That(seed, Is.EqualTo(625));
             Assert.That(element, Is.EqualTo(expected4D[0]).Within(6E-7));
 
-            element = faure.GetNextElement();
+            element = faure.Next();
             seed = faure.CurrentSeed;
             Assert.That(seed, Is.EqualTo(626));
             Assert.That(element, Is.EqualTo(expected4D[1]).Within(6E-7));

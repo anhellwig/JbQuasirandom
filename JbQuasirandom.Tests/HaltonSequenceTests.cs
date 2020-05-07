@@ -49,14 +49,14 @@
         }
 
         [Test]
-        public void GetNextElement_3DNonzeroSeed_ReturnsExpectedElement()
+        public void Next_3DNonzeroSeed_ReturnsExpectedElement()
         {
             int index = 6;
             double[] expected1 = sequence3D[index];
             double[] expected2 = sequence3D[index + 1];
             HaltonSequence halton = new HaltonSequence(3, index);
-            var result1 = halton.GetNextElement();
-            var result2 = halton.GetNextElement();
+            var result1 = halton.Next();
+            var result2 = halton.Next();
             Assert.That(result1, Is.EqualTo(expected1).Within(5E-6));
             Assert.That(result2, Is.EqualTo(expected2).Within(5E-6));
         }

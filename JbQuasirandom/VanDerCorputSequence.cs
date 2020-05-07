@@ -105,7 +105,7 @@ namespace JbQuasirandom
         /// <summary>Gets the next element from the binary van der Corput sequence.</summary>
         /// <returns>The next element.</returns>
         /// <exception cref="OverflowException">Thrown when the number of elements has exceeded the maximum number of integers.</exception>
-        public double GetNextElement()
+        public double Next()
         {
             checked
             {
@@ -115,9 +115,9 @@ namespace JbQuasirandom
         }
 
         /// <inheritdoc />
-        double[] ISequence.GetNextElement()
+        double[] ISequence.Next()
         {
-            return new double[] { GetNextElement() };
+            return new double[] { Next() };
         }
     }
 }

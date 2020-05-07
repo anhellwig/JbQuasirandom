@@ -43,7 +43,7 @@ namespace JbQuasirandom
         /// <summary>Gets the next element of the sequence.</summary>
         /// <returns>The next element.</returns>
         /// <exception cref="IndexOutOfRangeException">Thrown when the current index seems to be too large.</exception>
-        public double[] GetNextElement()
+        public double[] Next()
         {
             int l = 0;
             double[] quasi = new double[dimensionCount];

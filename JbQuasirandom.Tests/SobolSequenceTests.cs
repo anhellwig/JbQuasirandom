@@ -42,39 +42,39 @@
         };
 
         [Test]
-        public void GetNextElement_4DZeroSeed_ReturnsExpectedSequence()
+        public void Next_4DZeroSeed_ReturnsExpectedSequence()
         {
             SobolSequence sobol = new SobolSequence(4);
             int count = 12;
 
             for (int i = 0; i < count; i++)
             {
-                var element = sobol.GetNextElement();
+                var element = sobol.Next();
                 Assert.That(element, Is.EqualTo(expectedFromIndex0[i]));
             }
 
             // fast-forward to index 95
             for (int i = count; i < 95; i++)
             {
-                sobol.GetNextElement();
+                sobol.Next();
             }
 
             count = 16;
             for (int i = 0; i < count; i++)
             {
-                var element = sobol.GetNextElement();
+                var element = sobol.Next();
                 Assert.That(element, Is.EqualTo(expectedFromIndex95[i]).Within(6E-7));
             }
         }
 
         [Test]
-        public void GetNextElement_4DNonzeroSeed_ReturnsExpectedSequence()
+        public void Next_4DNonzeroSeed_ReturnsExpectedSequence()
         {
             SobolSequence sobol = new SobolSequence(4, 95);
             int count = 16;
             for (int i = 0; i < count; i++)
             {
-                var element = sobol.GetNextElement();
+                var element = sobol.Next();
                 Assert.That(element, Is.EqualTo(expectedFromIndex95[i]).Within(6E-7));
             }
         }
