@@ -63,21 +63,21 @@ namespace JbQuasirandom
             }
             else if (seed == seedSave + 1)
             {
-                l = BinaryMath.GetLowestBit0Position(seed);
+                l = BinaryMath.GetLeastSignificant0BitPosition(seed);
             }
             else if (seed > seedSave + 1)
             {
                 // Iterate through the sequence if a non-zero start index was specified.
                 for (long seedTemp = seedSave + 1; seedTemp <= seed - 1; seedTemp++)
                 {
-                    l = BinaryMath.GetLowestBit0Position(seedTemp);
+                    l = BinaryMath.GetLeastSignificant0BitPosition(seedTemp);
 
                     for (int i = 0; i < dimensionCount; i++)
                     {
                         lastq[i] ^= v[i, l - 1];
                     }
                 }
-                l = BinaryMath.GetLowestBit0Position(seed);
+                l = BinaryMath.GetLeastSignificant0BitPosition(seed);
             }
 
             // Check that the user is not calling too many times.

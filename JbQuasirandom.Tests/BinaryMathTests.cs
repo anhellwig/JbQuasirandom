@@ -12,16 +12,16 @@
         private readonly int[] expectedLow0Bits = { 1, 1, 3, 1, 2, 1, 1, 3, 1, 1 };
 
         [Test]
-        public void GetHighestBit1Position_Long()
+        public void GetMostSignificant1BitPosition_SampleValues_ReturnsExpectedBitPosition()
         {
-            var result = numbers.Select(i => BinaryMath.GetHighestBit1Position(i));
+            var result = numbers.Select(i => BinaryMath.GetMostSignificant1BitPosition(i));
             Assert.That(result, Is.EqualTo(expectedHigh1Bits));
         }
 
         [Test]
-        public void GetLowestBit0Position_Long()
+        public void GetLeastSignificant0BitPosition_SampleValues_ReturnsExpectedBitPosition()
         {
-            var result = numbers.Select(i => BinaryMath.GetLowestBit0Position(i));
+            var result = numbers.Select(i => BinaryMath.GetLeastSignificant0BitPosition(i));
             Assert.That(result, Is.EqualTo(expectedLow0Bits));
         }
     }
