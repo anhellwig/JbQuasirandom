@@ -7,6 +7,7 @@ namespace SampleApplication.Domain.Sequences
         public HaltonSequenceGenerator()
         {
             Description = "Halton";
+            MaxDimensions = 1600;
         }
 
         protected override ISequence GetSequence(int dimensions)

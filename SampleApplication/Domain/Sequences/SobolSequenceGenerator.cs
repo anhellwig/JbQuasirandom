@@ -7,6 +7,7 @@ namespace SampleApplication.Domain.Sequences
         public SobolSequenceGenerator()
         {
             Description = "Sobol";
+            MaxDimensions = 1111;
         }
 
         protected override ISequence GetSequence(int dimensions)

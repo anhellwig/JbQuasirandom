@@ -35,7 +35,20 @@ namespace SampleApplication.Applications.ViewModels
         public int DimensionCount
         {
             get => dimensionCount;
-            set => SetProperty(ref dimensionCount, value);
+            set
+            {
+                SetProperty(ref dimensionCount, value);
+                RaisePropertyChanged(nameof(MaxDimensionIndex));
+            }
+        }
+
+        public int MaxDimensionIndex => dimensionCount - 1;
+
+        private int maxDimensionCount;
+        public int MaxDimensionCount
+        {
+            get => maxDimensionCount;
+            set => SetProperty(ref maxDimensionCount, value);
         }
 
         private int pointCount;

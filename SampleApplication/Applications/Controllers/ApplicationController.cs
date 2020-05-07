@@ -2,6 +2,7 @@
 using SampleApplication.Domain.Sequences;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Waf.Applications;
 using System.Waf.Applications.Services;
@@ -28,6 +29,7 @@ namespace SampleApplication.Applications.Controllers
 
         public void Run()
         {
+            PropertyChangedEventManager.AddHandler(mainViewModel, MainViewModelPropertyChanged, string.Empty);
             mainViewModel.PointCount = 100;
             mainViewModel.DimensionCount = 3;
             mainViewModel.XDimension = 1;
@@ -51,6 +53,19 @@ namespace SampleApplication.Applications.Controllers
                 new HammersleySequenceGenerator(),
                 new FaureSequenceGenerator()
             };
+        }
+
+        private void MainViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(MainViewModel.SelectedSequence))
+            {
+                int maxCount = mainViewModel.SelectedSequence.MaxDimensions;
+                mainViewModel.MaxDimensionCount = maxCount;
+                if (mainViewModel.DimensionCount > maxCount)
+                {
+                    mainViewModel.DimensionCount = maxCount;
+                }
+            }
         }
 
         private void GeneratePoints()

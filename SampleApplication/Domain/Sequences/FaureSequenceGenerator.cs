@@ -7,6 +7,7 @@ namespace SampleApplication.Domain.Sequences
         public FaureSequenceGenerator()
         {
             Description = "Faure";
+            MaxDimensions = 13499;
         }
 
         protected override ISequence GetSequence(int dimensions)

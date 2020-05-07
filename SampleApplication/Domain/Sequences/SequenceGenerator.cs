@@ -5,7 +5,9 @@ namespace SampleApplication.Domain.Sequences
 {
     public abstract class SequenceGenerator
     {
-        public string Description { get; internal set; }
+        public string Description { get; protected set; }
+
+        public int MaxDimensions { get; protected set; }
 
         public override string ToString()
         {

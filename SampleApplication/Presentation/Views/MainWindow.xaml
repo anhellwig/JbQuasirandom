@@ -6,9 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:SampleApplication.Applications.ViewModels"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     Title="Quasirandom Sequences"
     Width="500"
-    Height="500"
+    Height="550"
     d:DataContext="{d:DesignInstance vm:MainViewModel}"
     SnapsToDevicePixels="True"
     mc:Ignorable="d">
@@ -88,49 +89,55 @@
                 Grid.Column="0"
                 Margin="0,1,8,1"
                 Text="# Dimensions:" />
-            <TextBox
+            <xctk:IntegerUpDown
                 Grid.Row="1"
                 Grid.Column="1"
                 Width="64"
                 Margin="0,1,0,1"
                 HorizontalAlignment="Left"
-                Text="{Binding DimensionCount}" />
+                Maximum="{Binding MaxDimensionCount}"
+                Minimum="2"
+                Value="{Binding DimensionCount}" />
             <TextBlock
                 Grid.Row="2"
                 Grid.Column="0"
                 Margin="0,1,8,1"
                 Text="# Points:" />
-            <TextBox
+            <xctk:IntegerUpDown
                 Grid.Row="2"
                 Grid.Column="1"
                 Width="64"
                 Margin="0,1,0,1"
                 HorizontalAlignment="Left"
-                Text="{Binding PointCount}" />
+                Value="{Binding PointCount}" />
             <TextBlock
                 Grid.Row="3"
                 Grid.Column="0"
                 Margin="0,1,8,1"
                 Text="x dimension:" />
-            <TextBox
+            <xctk:IntegerUpDown
                 Grid.Row="3"
                 Grid.Column="1"
                 Width="64"
                 Margin="0,1,0,1"
                 HorizontalAlignment="Left"
-                Text="{Binding XDimension}" />
+                Maximum="{Binding MaxDimensionIndex}"
+                Minimum="0"
+                Value="{Binding XDimension}" />
             <TextBlock
                 Grid.Row="4"
                 Grid.Column="0"
                 Margin="0,1,8,1"
                 Text="y dimension:" />
-            <TextBox
+            <xctk:IntegerUpDown
                 Grid.Row="4"
                 Grid.Column="1"
                 Width="64"
                 Margin="0,1,0,1"
                 HorizontalAlignment="Left"
-                Text="{Binding YDimension}" />
+                Maximum="{Binding MaxDimensionIndex}"
+                Minimum="0"
+                Value="{Binding YDimension}" />
         </Grid>
 
         <Button

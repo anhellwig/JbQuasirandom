@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DotNetProjects.Extended.Wpf.Toolkit" Version="4.6.82" />
     <PackageReference Include="DotNetProjects.WpfToolkit.DataVisualization" Version="6.0.79" />
     <PackageReference Include="System.Waf.Wpf" Version="6.0.1" />
   </ItemGroup>
