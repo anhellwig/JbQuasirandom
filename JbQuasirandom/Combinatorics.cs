@@ -11,6 +11,7 @@
         /// <returns>An jagged array of length <paramref name="upperIndex"/>+1.</returns>
         public static int[][] BinomialTableMod(int moduloNumber, int upperIndex)
         {
+            // original code from https://people.sc.fsu.edu/~jburkardt/cpp_src/faure/faure.cpp
             if (upperIndex < 0)
             {
                 throw new ArgumentException("Upper bound must not be negative.", nameof(upperIndex));

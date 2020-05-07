@@ -177,6 +177,7 @@
         /// <returns>The prime number or the negative value of the maximum stored prime if the specified value is too large.</returns>
         public static int PrimeGreaterOrEqual(int value)
         {
+            // original code from https://people.sc.fsu.edu/~jburkardt/cpp_src/faure/faure.cpp
             if (value > 2)
             {
                 int idxLow = 1;

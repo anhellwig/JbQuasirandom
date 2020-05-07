@@ -1,4 +1,6 @@
-﻿namespace JbQuasirandom
+﻿// original code from https://people.sc.fsu.edu/~jburkardt/cpp_src/sobol/sobol.cpp
+
+namespace JbQuasirandom
 {
     using System;
 
