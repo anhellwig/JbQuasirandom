@@ -52,12 +52,12 @@
             FaureSequence faure = new FaureSequence(2);
 
             var element = faure.Next();
-            int seed = faure.CurrentSeed;
+            int seed = faure.CurrentIndex;
             Assert.That(seed, Is.EqualTo(16));
             Assert.That(element, Is.EqualTo(expected2D[0]).Within(6E-7));
 
             element = faure.Next();
-            seed = faure.CurrentSeed;
+            seed = faure.CurrentIndex;
             Assert.That(seed, Is.EqualTo(17));
             Assert.That(element, Is.EqualTo(expected2D[1]).Within(6E-7));
         }
@@ -68,12 +68,12 @@
             FaureSequence faure = new FaureSequence(3);
 
             var element = faure.Next();
-            int seed = faure.CurrentSeed;
+            int seed = faure.CurrentIndex;
             Assert.That(seed, Is.EqualTo(81));
             Assert.That(element, Is.EqualTo(expected3D[0]).Within(6E-7));
 
             element = faure.Next();
-            seed = faure.CurrentSeed;
+            seed = faure.CurrentIndex;
             Assert.That(seed, Is.EqualTo(82));
             Assert.That(element, Is.EqualTo(expected3D[1]).Within(6E-7));
         }
@@ -84,12 +84,12 @@
             FaureSequence faure = new FaureSequence(4);
 
             var element = faure.Next();
-            int seed = faure.CurrentSeed;
+            int seed = faure.CurrentIndex;
             Assert.That(seed, Is.EqualTo(625));
             Assert.That(element, Is.EqualTo(expected4D[0]).Within(6E-7));
 
             element = faure.Next();
-            seed = faure.CurrentSeed;
+            seed = faure.CurrentIndex;
             Assert.That(seed, Is.EqualTo(626));
             Assert.That(element, Is.EqualTo(expected4D[1]).Within(6E-7));
         }
