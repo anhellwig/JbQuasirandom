@@ -9,7 +9,7 @@ You can iterate through all sequences using the `Next` method.
 
 ```csharp
 SobolSequence sobol = new SobolSequence(3);
-for (int i=0; i < 1000: i++)
+for (int i=0; i < 1000; i++)
 {
     double[] element = sobol.Next();
     // ...
@@ -54,7 +54,7 @@ The `Invert` method allows getting the index of an element in a sequence. Note: 
 
 ```csharp
 double value = 0.0625;
-int index = VanDerCorputSequence.Invert(value); //  // index == 8
+int index = VanDerCorputSequence.Invert(value); // index == 8
 ```
 ```csharp
 double[] element = new double[] { 0.375, 0.222222, 0.24 };
