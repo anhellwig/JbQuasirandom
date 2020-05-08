@@ -16,19 +16,12 @@ namespace JbQuasirandom
 
         /// <summary>Initializes a new instance of the <see cref="FaureSequence" /> class.</summary>
         /// <param name="dimensionCount">The number of dimensions.</param>
+        /// <param name="skipInitial">Specified whether an initial part of the sequence shall be skipped (recommended for better results). Default value is <c>true</c>.</param>
         /// <exception cref="ArgumentException">Thrown when the number of dimensions is less than 2 or larger than 13499.</exception>
-        public FaureSequence(int dimensionCount) : this(dimensionCount, true)
-        {
-        }
-
-        /// <summary>Initializes a new instance of the <see cref="FaureSequence" /> class.</summary>
-        /// <param name="dimensionCount">The number of dimensions.</param>
-        /// <param name="skipInitial">Specified whether an initial part of the sequence shall be skipped (recommended for better results).</param>
-        /// <exception cref="ArgumentException">Thrown when the number of dimensions is less than 2 or larger than 13499.</exception>
-        public FaureSequence(int dimensionCount, bool skipInitial)
+        public FaureSequence(int dimensionCount, bool skipInitial = true)
         {
             int maxDim = PrimeNumberMath.Primes[PrimeNumberMath.Primes.Count - 1];
-            if (dimensionCount < 2  || dimensionCount > maxDim)
+            if (dimensionCount < 2 || dimensionCount > maxDim)
             {
                 throw new ArgumentException($"The number of dimensions must be larger than 1 and not greather than {maxDim}.", nameof(dimensionCount));
             }
@@ -38,6 +31,22 @@ namespace JbQuasirandom
             {
                 currentIndex = (int)Math.Pow(qs, 4) - 1;
             }
+        }
+
+        /// <summary>Initializes a new instance of the <see cref="FaureSequence" /> class.</summary>
+        /// <param name="dimensionCount">The number of dimensions.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <exception cref="ArgumentException">Thrown when the number of dimensions is less than 2 or larger than 13499.</exception>
+        public FaureSequence(int dimensionCount, int startIndex)
+        {
+            int maxDim = PrimeNumberMath.Primes[PrimeNumberMath.Primes.Count - 1];
+            if (dimensionCount < 2 || dimensionCount > maxDim)
+            {
+                throw new ArgumentException($"The number of dimensions must be larger than 1 and not greather than {maxDim}.", nameof(dimensionCount));
+            }
+            this.dimensionCount = dimensionCount;
+            qs = PrimeNumberMath.PrimeGreaterOrEqual(dimensionCount);
+            currentIndex = startIndex;
         }
 
         /// <summary>Gets the next element of the sequence.</summary>
