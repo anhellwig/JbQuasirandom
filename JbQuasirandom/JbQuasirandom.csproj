@@ -9,7 +9,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Version>0.6.0</Version>
+    <Version>0.7.0</Version>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://github.com/anhellwig/JbQuasirandom</PackageProjectUrl>
     <RepositoryUrl>https://github.com/anhellwig/JbQuasirandom.git</RepositoryUrl>
