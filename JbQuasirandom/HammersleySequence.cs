@@ -99,11 +99,6 @@ namespace JbQuasirandom
 
             double[] r = new double[dimensionCount];
             r[0] = (double)(index % (b + 1)) / b;
-            for (int j = 1; j < dimensionCount; j++)
-            {
-                r[j] = 0.0;
-            }
-
             while (t.Sum() > 0)
             {
                 for (int j = 1; j < dimensionCount; j++)
