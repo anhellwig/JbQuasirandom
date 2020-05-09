@@ -13,8 +13,7 @@ namespace JbQuasirandom
         private readonly bool[] includ = new bool[ColumnCount];
         private readonly long[] lastq;
         private readonly int dimensionCount;
-        private long seed;
-        private long seedSave = -1L;
+        private long currentIndex;
         private double reciprocalDenominator;
 
         /// <summary>Initializes a new instance of the <see cref="SobolSequence"/> class.</summary>
@@ -26,7 +25,7 @@ namespace JbQuasirandom
         /// <summary>Initializes a new instance of the <see cref="SobolSequence" /> class.</summary>
         /// <param name="dimensionCount">The number of dimensions.</param>
         /// <param name="startIndex">The start index.</param>
-        /// <exception cref="ArgumentException">The number of dimensions must be &gt;= 1 and &lt;= 1111.</exception>
+        /// <exception cref="ArgumentException">The number of dimensions must be greater than 1 and less than 1112.</exception>
         public SobolSequence(int dimensionCount, int startIndex)
         {
             if (dimensionCount < 1 || dimensionCount > MaxDimensions)
@@ -34,69 +33,53 @@ namespace JbQuasirandom
                 throw new ArgumentException($"The number of dimensions must be >= 1 and <= {MaxDimensions}.", nameof(dimensionCount));
             }
             this.dimensionCount = dimensionCount;
-            seed = startIndex;
+            if (startIndex < 0)
+            {
+                startIndex = 0;
+            }
+            currentIndex = startIndex;
             lastq = new long[dimensionCount];
             InitializeStaticPartOfV();
             InitializeRemainingRowsOfV();
+            IterateToCurrent();
         }
 
         /// <summary>Gets the next element of the sequence.</summary>
         /// <returns>The next element.</returns>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the current index seems to be too large.</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the current index is too large.</exception>
         public double[] Next()
         {
-            int l = 0;
             double[] quasi = new double[dimensionCount];
-
-            if (seed < 0)
-            {
-                seed = 0;
-            }
-
-            if (seed == 0)
-            {
-                l = 1;
-                for (int i = 0; i < dimensionCount; i++)
-                {
-                    lastq[i] = 0;
-                }
-            }
-            else if (seed == seedSave + 1)
-            {
-                l = BinaryMath.GetLeastSignificant0BitPosition(seed);
-            }
-            else if (seed > seedSave + 1)
-            {
-                // Iterate through the sequence if a non-zero start index was specified.
-                for (long seedTemp = seedSave + 1; seedTemp <= seed - 1; seedTemp++)
-                {
-                    l = BinaryMath.GetLeastSignificant0BitPosition(seedTemp);
-
-                    for (int i = 0; i < dimensionCount; i++)
-                    {
-                        lastq[i] ^= v[i, l - 1];
-                    }
-                }
-                l = BinaryMath.GetLeastSignificant0BitPosition(seed);
-            }
-
-            // Check that the user is not calling too many times.
+            int l = BinaryMath.GetLeastSignificant0BitPosition(currentIndex);
             if (l > ColumnCount)
             {
-                throw new IndexOutOfRangeException("The index value seems to be too large.");
+                throw new IndexOutOfRangeException("The current index is be too large.");
             }
 
-            //  Calculate the new components of QUASI
             for (int i = 0; i < dimensionCount; i++)
             {
                 quasi[i] = lastq[i] * reciprocalDenominator;
                 lastq[i] ^= v[i, l - 1];
             }
 
-            seedSave = seed;
-            seed++;
-
+            currentIndex++;
             return quasi;
+        }
+
+        private void IterateToCurrent()
+        {
+            if (BinaryMath.GetLeastSignificant0BitPosition(currentIndex - 1) > ColumnCount)
+            {
+                throw new IndexOutOfRangeException("The current index is be too large.");
+            }
+            for (long idx = 0; idx < currentIndex; idx++)
+            {
+                int l = BinaryMath.GetLeastSignificant0BitPosition(idx);
+                for (int i = 0; i < dimensionCount; i++)
+                {
+                    lastq[i] ^= v[i, l - 1];
+                }
+            }
         }
 
         private static readonly int[] poly = new int[]
